@@ -28,7 +28,7 @@ while True:
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"})
     else:
         for i in range(5):
-            requests.post(url, json={"content": "ALG ALERT 🚨🚨🚨 <secret.role> 🚨🚨🚨"})
+            requests.post(url, json={"content": f"ALG ALERT 🚨🚨🚨 <{secret.role}> 🚨🚨🚨"})
             time.sleep(1)
 
     time.sleep(60 * 5)
