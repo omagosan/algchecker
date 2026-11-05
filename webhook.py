@@ -30,5 +30,6 @@ while True:
         for i in range(5):
             requests.post(url, json={"content": f"ALG ALERT 🚨🚨🚨 <{secret.role}> & <{secret.role2}> 🚨🚨🚨"})
             time.sleep(1)
+            break
 
     time.sleep(60 * 5)
