@@ -2,6 +2,7 @@
 import requests
 import main
 import secret
+import os
 
 url = secret.url
 
@@ -30,6 +31,6 @@ while True:
         for i in range(5):
             requests.post(url, json={"content": f"ALG ALERT 🚨🚨🚨 <{secret.role}> & <{secret.role2}> 🚨🚨🚨"})
             time.sleep(1)
-            break
+            os.system("sudo shutdown -h +1")
 
     time.sleep(60 * 5)
