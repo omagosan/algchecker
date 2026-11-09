@@ -11,10 +11,13 @@ def main():
     })
 
     l = "https://courseware.zcu.cz/portal/studium/courseware/kiv/alg/vysledky.html"
-    ses = s.get(l)
+    ses = s.get(l, timeout=15)
     p = BeautifulSoup(ses.text, "html.parser")
 
     formular = p.find("form")
+    if not formular:
+        print("kys")
+        raise Exception("kys")
     post = urljoin(ses.url, formular["action"])
 
     data = {}
@@ -27,7 +30,7 @@ def main():
     data["j_password"] = secret.PASSWORD
     data["_eventId_proceed"] = ""
 
-    login = s.post(post, data=data)
+    login = s.post(post, data=data, timeout=15)
     pz = BeautifulSoup(login.text, "html.parser")
 
     saml = pz.find("form")
